@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'components.todolist.apps.TodolistConfig',
+    'components.carculadora.apps.CarculadoraConfig',
 ]
 
 MIDDLEWARE = [
