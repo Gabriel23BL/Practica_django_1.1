@@ -16,14 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from mysite import views as mysite_views
+from components.home import views as home_views
 from components.todolist import views as todo_views
 from components.carculadora import views as carculadora_views
 
 
 urlpatterns = [
+    path('', include('components.home.urls')),
     path('admin/', admin.site.urls),
-    path('hello/', include("mysite.urls")),
     path('todolist/', include('components.todolist.urls')),
     path('carculadora/', include('components.carculadora.urls')),
+    path('formulario/', include('components.formulario.urls')),
 ]
