@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.todolist, name='To Do List'),
+    path('', views.todolist, name='todolist'),
     path('insert/', views.insert, name='insert'),
     path('update/', views.update, name='update' ),
     path('update/<int:task_id>', views.update_form, name='update_form'),
