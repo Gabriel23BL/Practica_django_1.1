@@ -3,17 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>Home</title>
 </head>
 <body>
-    <div>
-        <h1>Bienvenidos a mi practica de PYTHON/DJANGO</h1>
-        <br>
-        <ul>
-            <li><a href="todolist/">To Do List</a></li>
-            <li><a href="carculadora/">Carculadora</a></li>
-            <li><a href="formulario/">Formulario</a></li>
-        </ul>
-    </div>
+    <header class="bg-blue-400 p-4 shadow-md">
+        <nav class="container mx-auto flex items-center justify-between">
+            
+            <div class="flex items-center space-x-3">
+                <div class="bg-white p-1 rounded-full">
+                  
+                </div>
+                <span class="text-white text-xl font-bold tracking-tight">Prueba </span>
+            </div>
+
+            <ul class="flex space-x-6 list-none">
+                <li>
+                    <a href="todolist/" class="text-white transition-colors duration-300 hover:text-gray-200 font-medium">
+                        To Do List
+                    </a>
+                </li>
+                <li>
+                    <a href="carculadora/" class="text-white transition-colors duration-300 hover:text-gray-200 font-medium">
+                        Carculadora
+                    </a>
+                </li>
+                <li>
+                    <a href="formulario/" class="text-white transition-colors duration-300 hover:text-gray-200 font-medium">
+                        Formulario
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+    </header>
+
 </body>
 </html>
