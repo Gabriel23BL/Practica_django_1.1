@@ -36,7 +36,8 @@ def update_form(request, task_id):
 
     context = {
         'db_data': db_data[::-1],
-        'update': db_data_only
+        'update': db_data_only,
+        'task_id': task_id,
     }
     return render(request, 'todolist/todolist.html', context)
 

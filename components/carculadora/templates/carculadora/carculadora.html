@@ -1,14 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calculadora | Gori-Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
 </head>
-<body>
-    <div>
-        <h2>Esta es mi primera carculadora</h2>
-        <a href="/">Volver al inicio</a>
-    </div>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-blue-400 p-3 shadow-md mb-4">
+        <nav class="container mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white p-1 rounded-full text-blue-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <span class="text-white text-xl font-bold tracking-tight">Gori-Carculadora</span>
+            </div>
+
+            <ul class="flex space-x-6 list-none">
+                <li><a href="/" class="text-white transition-colors duration-300 hover:text-gray-200 font-medium">Home</a></li>
+                <li><a href="/todolist" class="text-white transition-colors duration-300 hover:text-gray-200 font-medium">To Do List</a></li>
+                <li><a href="/formulario" class="text-white transition-colors duration-300 hover:text-gray-200 font-medium">Formulario</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-extrabold text-gray-800">Gori-Task <span class="text-blue-500">Calc</span></h1>
+            <p class="text-gray-500">Procesado con precisión en Python</p>
+        </div>
+
+        <div class="max-w-md mx-auto bg-white p-8 rounded-3xl shadow-2xl border border-gray-100">
+            
+            <div class="mb-8">
+                <label class="block text-xs font-bold text-gray-400 uppercase mb-2 ml-1">Resultado</label>
+                <div class="w-100 text-right text-4xl font-bold bg-blue-50 text-blue-600 p-6 rounded-2xl border border-blue-100 shadow-inner min-h-[90px] flex items-center justify-end">
+                    {{ resultado|default:"0" }}
+                </div>
+            </div>
+
+            <form method="POST" class="space-y-6">
+                {% csrf_token %}
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col">
+                        <label class="text-sm font-semibold text-gray-600 mb-2 ml-1">Número 1</label>
+                        <input type="number" name="num1" step="any" value="{{ num1 }}" required
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition-all text-xl">
+                    </div>
+                    <div class="flex flex-col">
+                        <label class="text-sm font-semibold text-gray-600 mb-2 ml-1">Número 2</label>
+                        <input type="number" name="num2" step="any" value="{{ num2 }}" required
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 outline-none focus:ring-2 focus:ring-blue-400 focus:bg-white transition-all text-xl">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-4 gap-3">
+                    <button type="submit" name="operacion" value="suma" 
+                        class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-5 rounded-2xl transition-all shadow-lg shadow-blue-100 text-2xl">
+                        +
+                    </button>
+                    <button type="submit" name="operacion" value="resta" 
+                        class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-5 rounded-2xl transition-all shadow-lg shadow-blue-100 text-2xl">
+                        -
+                    </button>
+                    <button type="submit" name="operacion" value="multi" 
+                        class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-5 rounded-2xl transition-all shadow-lg shadow-blue-100 text-2xl">
+                        ×
+                    </button>
+                    <button type="submit" name="operacion" value="divi" 
+                        class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-5 rounded-2xl transition-all shadow-lg shadow-blue-100 text-2xl">
+                        ÷
+                    </button>
+                </div>
+
+                <a href="." class="block text-center text-gray-400 hover:text-red-500 text-sm font-medium transition-colors pt-4 uppercase tracking-widest">
+                    Reiniciar Calculadora
+                </a>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
