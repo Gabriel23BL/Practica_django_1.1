@@ -26,5 +26,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('todolist/', include('components.todolist.urls')),
     path('carculadora/', include('components.carculadora.urls')),
-    path('formulario/', include('components.formulario.urls')),
 ]

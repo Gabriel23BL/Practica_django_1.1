@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'components.home.apps.HomeConfig',
     'components.todolist.apps.TodolistConfig',
     'components.carculadora.apps.CarculadoraConfig',
-    'components.formulario.apps.FormularioConfig'
 ]
 
 MIDDLEWARE = [
